@@ -31,7 +31,7 @@ void main(){
 	}	
 }
 		
-		```
+```
     
  Para compilar utilizando openmp:   
  
