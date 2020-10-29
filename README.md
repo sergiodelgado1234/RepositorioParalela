@@ -53,8 +53,8 @@ Funciones relacionadas con cantidad de hilos:
 
 ```int omp_get_thread_num();  // nos devuelve el ID del thread
 int omp_set_num_thread();  // establecemos cantidad de threads
-int omp_get_num_thread();  // nos devuelve cantidad de threads```
-
+int omp_get_num_thread();  // nos devuelve cantidad de threads
+```
  ###### Definicion de una region paralela
  
  Iniciar una region paralela implica que en tiempo de ejecucion se creara un grupo de hilos. Por defecto se toma del sistema operativo la cantidad de hilos disponibles para la tarea. Adicionalmente podemos especificar la cantidad de hilos explicitamente a traves de codigo o parametros por consola. En codigo, definir una region paralela:
@@ -72,14 +72,16 @@ void main(int argc, char const *argv[])
     	//muestra el id del hilo que se esta ejecutando
         printf("%d\n", omp_get_thread_num());
     }
-}```
+}
+```
 
- ## Worksharing 
+## Worksharing 
  
- Comparte el trabajo de un bucle for entre distintos hilos. Los indices i que le tocan a cada hilo son privados.
+Comparte el trabajo de un bucle for entre distintos hilos. Los indices i que le tocan a cada hilo son privados.
 Consideraciones: las variables automaticas creadas durante la ejecucion de los threads son privadas del thread correspondiente. Los datos que son almacenados en el heap son compartidos. La variable de control del loop sobre el que se especifica un #pragma omp for es privada de cada thread. La mayoria de las variables pueden ser declaradas explicitamente como privadas o compartidas en una directiva. Sintaxis:
 
-```#include <stdio.h>
+```
+#include <stdio.h>
 #include <omp.h>
 
 #define LARGO 1000
